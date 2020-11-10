@@ -19,5 +19,34 @@
 window.addEventListener('load',onLoad);
 
 function onLoad(){
-  console.log('hi')
+  var arrayUsuariosGlobal = [];
+  var arrayCondicionado = [];
+  function createUsers(name,country,money,premiumAccount){
+    var usuario = new Object();
+    usuario.name = name;
+    usuario.country = country;
+    usuario.money = money;
+    premiumAccount = premiumAccount;
+    arrayUsuariosGlobal.push(usuario);
+  }
+  function filterUsers(array) {
+  var objeto;
+  for(i=0;i<array.length;i++){
+    objeto = array[i];
+    if(objeto.country == "spain" && objeto.money > 200){
+      arrayCondicionado.push(objeto);
+    }
+  }
+}
+    
+  createUsers("usuario1","spain",199,true);
+  createUsers("usuario2","france",0,false);
+  createUsers("usuario3","spain",537,false);
+  createUsers("usuario4","italy",1004,true);
+  createUsers("usuario5","spain",250,false);
+  createUsers("usuario6","ireland",799,true);
+  createUsers("usuario7","spain",3345,false);
+  filterUsers(arrayUsuariosGlobal);
+  console.log(arrayCondicionado);
+  console.log(arrayUsuariosGlobal);
 }
